@@ -5,7 +5,9 @@ const { Given, When, Then } = createBdd(test);
 
 	
 Given('user is on the home page after logged in', async ({Home_Page, page}) => {
+
     await Home_Page.verifyHomePageUrl()
+
        
     });
   
@@ -74,13 +76,14 @@ Then('The user is presented with the result after clicking run button from sheet
   
     When('The user enters invalid python code in Editor from sheet {string} and {int}', async ({genericPage}, arg, arg1) => {
         const msg = await genericPage.enterCodeToExecute(arg, arg1)
-        
-        console.log(msg)
+   
+       console.log(msg)
        
     });
   
       Then('The user gets an error message as {string}', async ({genericPage}, arg) => {
         await genericPage.getErrorMessage(arg)
+
 
     });
   

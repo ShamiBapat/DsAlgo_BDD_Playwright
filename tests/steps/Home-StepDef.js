@@ -109,6 +109,7 @@ Then('User should be redirected to Register page', async ({page}) => {
          await page.toHaveURL('https://dsportalapp.herokuapp.com/graph/');
   });
 
+
   When("The user clicks the {string} button", async({Home_Page, page}, btnName) => {
 		await Home_Page.getStarted(btnName)
 	})
