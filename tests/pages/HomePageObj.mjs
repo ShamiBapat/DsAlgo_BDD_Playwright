@@ -113,7 +113,7 @@ async clickOnRegister() {
 
 //generic method to click on specific get strted module btn
 
-  async  getStartedForModule(string) {
+  async  getStarted(string) {
 		switch(string){
 		case "Datastructures":
 			await this.page.getstarted_DS.isVisible();

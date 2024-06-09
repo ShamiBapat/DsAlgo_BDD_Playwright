@@ -6,7 +6,7 @@ import{readExcelCode, readExcelResult } from '../../CommonUtils/ExcelUtility'
         this.page = page
         this.page.tryHere = page.locator("//a[text()='Try here>>>']")
         // this.page.editorInput = page.locator('pre').nth(1)
-        this.page.editorInput = page.locator("(//pre[@class=' CodeMirror-line '])[1]")
+        this.page.editorInput = page.locator("//pre[@class=' CodeMirror-line ']")
         this.page.editorText = page.getByRole('textbox')
         this.page.run = page.getByRole('button', { name: 'Run' })
         this.page.output = page.locator("//pre[@id='output']")
@@ -24,8 +24,23 @@ import{readExcelCode, readExcelResult } from '../../CommonUtils/ExcelUtility'
 	async  click_Run() {
 		await this.page.run.click();
 	}
-	
-    
+
+  
+  async verifyAlertErrMsgNClikeOkBtn(errMsg) {
+    //first enable alert handling and then click btn to get alert
+    await this.page.on('dialog',async dialog=>{
+
+        expect(dialog.type()).toContain('alert')
+        //expect(dialog.message()).toContain(errMsg)
+        expect(dialog.message()).toContain('NameError: name')
+        await dialog.accept();
+    })
+ }
+
+ async enterCodeWithoutExcel(input) {
+  await this.page.editorInput.fill(input)
+}	
+  
 	async enterCodeToExecute( sheetName,  rowNum, page)
     {
 		let code = await readExcelCode(sheetName,rowNum )

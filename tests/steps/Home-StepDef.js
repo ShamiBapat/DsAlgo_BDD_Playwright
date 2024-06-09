@@ -101,24 +101,20 @@ Then('User should be redirected to Register page', async ({page}) => {
   When('user click on Graph data structure from drop down menu {string}', async ({Home_Page}, ddMenuItem) => {
          
                 await Home_Page.clickOnDataStrDD();
-         //await expect(page.locator('//div[contains(@class,"dropdown-menu")]/a[text()="Graph"]')).toBeVisible();
+                await Home_Page.dropdown(ddMenuItem)
   });
-  
   
   Then('user should be redirected to Graph home page.', async ({page}) => {
     
-         //await page.toHaveURL('https://dsportalapp.herokuapp.com/graph/');
+         await page.toHaveURL('https://dsportalapp.herokuapp.com/graph/');
   });
-  
 
-
-
-  When("The user clicks the {string} button", async({homePage, page}, str) => {
-		await homePage.getStarted(str)
+  When("The user clicks the {string} button", async({Home_Page, page}, btnName) => {
+		await Home_Page.getStarted(btnName)
 	})
 	
 	Then("The user should be redirected to homepage", async() => {
-		let title = await homePage.getPageTitle()
+		let title = await Home_Page.getPageTitle()
 		expect(title).toContainText('NumpyNinja')
 	})
 
