@@ -1,4 +1,4 @@
-@only
+
  Feature: Array Validations feature
  Background:
     Given user navigate to dsportalapp home page
