@@ -9,7 +9,7 @@ Given('user is on the home page after logged in', async ({Home_Page, page}) => {
        
     });
   
-  When('The user clicks on the Get Started button below {string}', async ({Home_Page},str) =>{
+  When('The user clicks on the Get Started button below {string}', async ({Home_Page},btnName) =>{
     //await Home_Page.getStartedForModule("Datastructures");
 
    await Home_Page.getStarted(btnName);
