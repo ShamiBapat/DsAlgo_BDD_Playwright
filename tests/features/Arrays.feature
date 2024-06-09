@@ -13,7 +13,7 @@
 Scenario:validating Arrays in python page with valid data
 Then User clicks ArrayInPython Page
 When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
 When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
 And clicks run button1
 Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
@@ -27,7 +27,7 @@ Then The user is presented with the result after clicking run button from sheet 
 Scenario:  validating Arrays in python page with invalid data    
 Then User clicks ArrayInPython Page
 When The user clicks the Array Try here link 
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
 When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
 And clicks run button1
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
@@ -39,7 +39,7 @@ Then The user gets an error message as "NameError: name 'String' is not defined 
 Scenario Outline: validating Arrays Using List page with valid data 
 Then User clicks Arrays Using List Page
 When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
 When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
 And clicks run button1
 Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
