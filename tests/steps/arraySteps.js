@@ -23,14 +23,14 @@ When('The user enters invalid python code in Editor from sheet {string} and {int
   console.log(msg)
  
 });
-When('The user clicks the Array Try here link', async ({dataStructurePage}) => {
-  await dataStructurePage.tryHereClick()
+When('The user clicks the Array Try here link', async ({arrayPage}) => {
+  await arrayPage.tryHereClick()
 });
 
-Then('The user is in a page having an Editor with a Run button to test in {string} Arraypage', async ({dataStructurePage}, str) => {
+Then('The user is in a page having an Editor with a Run button to test in {string} Arraypage', async ({arrayPage}, str) => {
 
    console.log(`Expected to be in: ${str}`);
-   await dataStructurePage.checkURL(str);      
+   await arrayPage.checkURL(str);      
 
  });
  When('clicks run button1', async ({genericPage}) => {

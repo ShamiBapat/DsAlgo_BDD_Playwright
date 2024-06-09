@@ -39,6 +39,7 @@ import{readExcelCode, readExcelResult } from '../../CommonUtils/ExcelUtility'
 
  async enterCodeWithoutExcel(input) {
   await this.page.editorInput.fill(input)
+  await this.page.pause()
 }	
   
 	async enterCodeToExecute( sheetName,  rowNum, page)

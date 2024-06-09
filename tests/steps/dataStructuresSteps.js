@@ -5,16 +5,13 @@ const { Given, When, Then } = createBdd(test);
 
 	
 Given('user is on the home page after logged in', async ({Home_Page, page}) => {
-   
     await Home_Page.verifyHomePageUrl()
-    await page.pause()
-       
        
     });
   
   When('The user clicks on the Get Started button below {string}', async ({Home_Page},btnName) =>{
     //await Home_Page.getStartedForModule("Datastructures");
-   await Home_Page.getStartedForModule(btnName);
+   await Home_Page.getStarted(btnName);
 
     })
 	
@@ -75,12 +72,14 @@ Then('The user is presented with the result after clicking run button from sheet
   
     When('The user enters invalid python code in Editor from sheet {string} and {int}', async ({genericPage}, arg, arg1) => {
         const msg = await genericPage.enterCodeToExecute(arg, arg1)
+        
         console.log(msg)
        
     });
   
       Then('The user gets an error message as {string}', async ({genericPage}, arg) => {
-         await genericPage.getErrorMessage(arg)
+        await genericPage.getErrorMessage(arg)
+
     });
   
    
