@@ -15,7 +15,33 @@ Then('User clicks ArrayInPython Page', async ({arrayPage}) => {
  await arrayPage.clickOnArraysInPython();
  await arrayPage.verifyArraysInPythonPageUrl();
   });
+  When('The user enters valid python code in Editor from sheet {string} and {int} Array', async ({genericPage}, sheetName, rowNum) => {
+    await genericPage.enterCodeToExecute(sheetName, rowNum)
+});
+When('The user enters invalid python code in Editor from sheet {string} and {int} Array', async ({genericPage}, arg, arg1) => {
+  const msg = await genericPage.enterCodeToExecute(arg, arg1)
+  console.log(msg)
  
+});
+When('The user clicks the Array Try here link', async ({dataStructurePage}) => {
+  await dataStructurePage.tryHereClick()
+});
+
+Then('The user is in a page having an Editor with a Run button to test in {string} Arraypage', async ({dataStructurePage}, str) => {
+
+   console.log(`Expected to be in: ${str}`);
+   await dataStructurePage.checkURL(str);      
+
+ });
+ When('clicks run button1', async ({genericPage}) => {
+  await genericPage.click_Run()
+});
+
+Then('The user is presented with the result after clicking run button from sheet {string} and {int} Array', async ({genericPage}, arg, arg1) => {
+        console.log('Expected result',genericPage.getExpectedResult(arg,arg1) )
+        console.log('Actual result',genericPage.getActualResult() )
+
+    });
 Then('user is landed ArrayInPython Page successfully and has title as {string}', async ({arrayPage,page}, str) => {
     await arrayPage.checkPageTitleArray(str)
   });

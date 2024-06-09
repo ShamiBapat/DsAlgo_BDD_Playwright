@@ -6,7 +6,6 @@ import{readExcelCode, readExcelResult } from '../../CommonUtils/ExcelUtility'
         this.page = page
         this.page.tryHere = page.locator("//a[text()='Try here>>>']")
         this.page.editorInput = page.locator('pre').nth(1)
-        //
         //this.page.editorInput = page.locator("//pre[@class=' CodeMirror-line ']")
         this.page.editorText = page.getByRole('textbox')
         this.page.run = page.getByRole('button', { name: 'Run' })
