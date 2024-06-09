@@ -1,24 +1,33 @@
 import {test} from '../fixtures/fixtures';
 import { createBdd } from 'playwright-bdd';
 const { Given, When, Then } = createBdd(test);
+
+
 	
-Given('The user is on the {string} after logged in', async ({dataStructurePage, page}, str) => {
-        await dataStructurePage.checkURL(page, str)
-        page.pause();
+Given('user is on the home page after logged in', async ({Home_Page, page}) => {
+   
+    await Home_Page.verifyHomePageUrl()
+    await page.pause()
+       
+       
     });
   
   When('The user clicks on the Get Started button below {string}', async ({Home_Page},btnName) =>{
-    //Home_Page.getStartedForModule("Datastructures");
-    Home_Page.getStartedForModule(btnName);
+    //await Home_Page.getStartedForModule("Datastructures");
+   await Home_Page.getStartedForModule(btnName);
 
     })
 	
-    Then('The user is redirected to {string} Page', async ({dataStructurePage, page}, str) => {
-        await dataStructurePage.navigateTo(page, str)
+    Then('The user is redirected to {string} Page', async ({dataStructurePage}, str) => {
+       // console.log(str)
+       console.log(`Expected to redirect to: ${str}`);
+        await dataStructurePage.checkURL(str)
+       
+
     });
   
 	When("The user clicks on the Time Complexity link", async({dataStructurePage}) => {
-        dataStructurePage.timeComplexityClick();
+       await dataStructurePage.timeComplexityClick();
     })  
   
     When('the user clicks on Practice Questions link', async ({dataStructurePage}) => {
@@ -26,18 +35,24 @@ Given('The user is on the {string} after logged in', async ({dataStructurePage, 
     });
   
     Then('The user goes back to previous Page {string}', async ({dataStructurePage, page}, str) => {
-        await dataStructurePage.navigateTo(page, str)
+       // await dataStructurePage.navigateTo(page, str)
+       console.log(`Expected to go back to: ${str}`);
+       await dataStructurePage.navigateTo(page, str);
+       
       });
     
 
-    When('The user clicks the Try here link', async ({dataStructurePage, page}) => {
+    When('The user clicks the Try here link', async ({dataStructurePage}) => {
         await dataStructurePage.tryHereClick()
     });
 
     
-    Given('The user is in a page having an Editor with a Run button to test in {string} page', async ({dataStructurePage, page}, arg) => {
-        
-        await dataStructurePage.checkURL(page, arg)
+    Then('The user is in a page having an Editor with a Run button to test in {string} page', async ({dataStructurePage}, str) => {
+       // console.log("url", Url)
+        //await dataStructurePage.checkURL(Url)
+        console.log(`Expected to be in: ${str}`);
+        await dataStructurePage.checkURL(str);      
+    
       });
 
     When('The user enters valid python code in Editor from sheet {string} and {int}', async ({genericPage}, sheetName, rowNum) => {
@@ -48,8 +63,9 @@ Given('The user is on the {string} after logged in', async ({dataStructurePage, 
         await genericPage.click_Run()
     });
 
-    Then('The user is presented with the result after run button is clicked from sheet {string} and {int}', async ({genericPage}, arg, arg1) => {
-        
+//'1. Missing step definition for "tests\features\DataStructures.feature:29:5"
+Then('The user is presented with the result after clicking run button from sheet {string} and {int}', async ({genericPage}, arg, arg1) => {
+  // ...
         console.log('Expected result',genericPage.getExpectedResult(arg,arg1) )
         console.log('Actual result',genericPage.getActualResult() )
 
@@ -57,16 +73,14 @@ Given('The user is on the {string} after logged in', async ({dataStructurePage, 
 
     //Invalid python code
   
-    When('The user enters invalid python code in Editor from sheet {string} and {int}', async ({genericPage, page}, arg, arg1) => {
-        await genericPage.enterCodeToExecute(arg, arg1)
+    When('The user enters invalid python code in Editor from sheet {string} and {int}', async ({genericPage}, arg, arg1) => {
+        const msg = await genericPage.enterCodeToExecute(arg, arg1)
+        console.log(msg)
+       
     });
   
       Then('The user gets an error message as {string}', async ({genericPage}, arg) => {
-        await genericPage.getErrorMessage(arg)
+         await genericPage.getErrorMessage(arg)
     });
   
-    // 1. Missing step definition for "tests\features\DataStructures.feature:50:5"
-    Then('The user is directed to {string} page', async ({}, arg) => {
-    // ...
-     });
-
+   
