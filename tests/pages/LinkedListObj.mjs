@@ -24,45 +24,35 @@ class LinkedListPage {
 	
 	   }
 
-		// async dropdown_LinkedList(page) {
-				
-		// 	this.page.getStartedForModule("Linked List");
-		// }
-		
-		// public String getLinkedListPageTitle() {
-		// 	String title = driver.getTitle();
-		// 	return title;
-		// }
-
 		async click_introduction() {
-			await introductionLink.click();
+			await this.introductionLink.click();
 		}
 
 		async click_creatingLinkedList() {
-			await creatinglinkedlistLink.click();
+			await this.creatinglinkedlistLink.click();
 		}
 		async click_typesOflLinkedList() {
-			await typesOfLLLink.click();
+			await this.typesOfLLLink.click();
 		}
 
 		async click_implementlinkedListInPython() {
-			await implementLLInPythonLink.click();
+			await this.implementLLInPythonLink.click();
 		}
 
 		async click_traversal() {
-			await traversalLink.click();
+			await this.traversalLink.click();
 		}
 
 		async click_insertion() {
-			await insertionLink.click();
+			await this.insertionLink.click();
 		}
 
 		async click_deletion() {
-			await deletionLink.click();
+			await this.deletionLink.click();
 		}
 
 		async click_practiceQuestion() {
-			await practiceQuestionLink.click();
+			await this.practiceQuestionLink.click();
 		}
 		
 		async tryHereClick() {
@@ -77,19 +67,6 @@ class LinkedListPage {
 		}
 	 
 		
-		// async getpageTitle() {
-		// 	String title = driver.getTitle();
-		// 	return title;
-		// }
-
-
-		// public String getErrormsg() {
-		// 	String errormsg = driver.switchTo().alert().getText();
-		// 	driver.switchTo().alert().accept();
-		// 	return errormsg;
-		// }
-
-
 		async checkURL(pagename) { 
 			console.log(`Expected page name: ${pagename}`);
 			let page_name = pagename.replace(/ /g, '');

@@ -1,4 +1,3 @@
-@Only
 Feature: Testing LinkedList page
 
 Background:
@@ -6,28 +5,15 @@ Background:
     When User click on Sign-In buttons
     When User enters valid username and valid password
     And User click on login button
-
-  @LinkedList02
-  Scenario: User navigated to "linked list" page
-    Given The user is on the "home page" after logged in LL
-    When The user clicks getstarted for "Linked List page" module
-    Then The user redirected to "Linked List"  Page
-
-  @LinkedList03
+    When The user clicks on the Get Started button below "Linkedlist"
+    Then The user is redirected to "Linkedlist" Page
+  
+  @LinkedList01
   Scenario: User navigated to "Introduction" page
-    Given The user is on the "Linked List page" after logged in LL
+
     When The user clicks Introduction link
     Then The user should be directed to "Introduction" of Linked List Page
-
-  @LinkedList04
-  Scenario: User navigated to tryEditor page with Run button from Introduction page
-    Given The user is on the "Introduction" after logged in LL
-    When The user clicks "try here" button in the "introduction" page
-    Then The user redirected to the page having an tryEditor with a Run button to test
-
-  @LinkedList05
- 	Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+    When The user clicks try here button in the introduction page
     When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
     And clicks run button
     Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
@@ -36,10 +22,13 @@ Background:
       | Sheetname  | RowNumber |
       | pythonCode |         0 |
 
-  @LinkedList06
+  
+  @LinkedList02
   Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+    When The user clicks Introduction link
+    Then The user should be directed to "Introduction" of Linked List Page
+    When The user clicks try here button in the introduction page
+    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
     And clicks run button
     Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 
@@ -47,212 +36,39 @@ Background:
       | Sheetname  | RowNumber |
       | pythonCode |         1 |
 
-  @LinkedList07
-  Scenario: User navigated to "creating linked list" page
-    Given The user is on the "Linked List page" after logged in LL
+  @LinkedList03
+  Scenario: User navigated to "creating linked list"
     When The user clicks creating linked list link
-    Then The user should be directed to "Creating Linked LIst" of Linked List Page
+    Then The user is redirected to "Creating Linked List" Page
 
   @LinkedList08
-  Scenario: User navigated to tryEditor page with Run button from Creating a Linked List page
-    Given The user is on the "Creating a Linked List" after logged in LL
-    When The user clicks "try here" button in the "creating linked list" page
-    Then The user should be redirected to a page having an tryEditor with a Run button to test
-
-  @LinkedList09
-  Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-
-  @LinkedList10
- 	Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList11
   Scenario: User navigated to "Types of linked list" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks the Types of Linked List button
-    Then The user should be directed to "Types of Linked List" of Linked List Page
+    Then The user is redirected to "Types of Linked List" Page
+
 
   @LinkedList12
-  Scenario: User navigated to tryEditor page with Run button from Types of Linked List
-    Given The user is on the "Types of Linked list" after logged in LL
-    When The user clicks "Try Here" button in the "types of linked list" page
-    Then The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-
-  @LinkedList13
-  Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-
-  @LinkedList14
-  Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList15
   Scenario: user navigated to "Implementation linked list in python" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks the Implement Linked List in Python button
-    Then The user should be directed to "Implement Linked List in Python" of Linked List Page
-
-  @LinkedList16
-  Scenario: User navigated to tryEditor page with Run button from Implement Linked List in Python page
-    Given The user is on the "Implement Linked List in Python" after logged in LL
-    When The user clicks "Try Here" button in the "implemented linked list in python" page
-    Then The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-
-  @LinkedList17
-  Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-
-  @LinkedList18
- Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList19
+    Then The user is redirected to "Implement Linked List in Python" Page
+  
+  @LinkedList14
   Scenario: user navigated to "Traversal" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks the Traversal button
     Then The user should be directed to "Traversal" of Linked List Page
 
-  @LinkedList20
-  Scenario: User navigated to tryEditor page with Run button from Traversal page
-    Given The user is on the "Traversal" after logged in LL
-    When The user clicks "Try Here" button in the "traversal" page
-    Then The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-
-  @LinkedList21
-  Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-
-  @LinkedList22
-  Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList23
+  @LinkedList16
   Scenario: user navigated to "Insertion" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks the Insertion button
     Then The user should be directed to "Insertion" of Linked List Page
 
-  @LinkedList24
-  Scenario: User navigated to tryEditor page with Run button from Insertion page
-    Given The user is on the "Insertion" after logged in LL
-    When The user clicks "Try Here" button in the "Insertion" page
-    Then The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-
-  @LinkedList25
-  Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after run button is clicked
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-
-  @LinkedList26
-  Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList27
+  @LinkedList18
   Scenario: user navigated to "Deletion" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks the Deletion button
     Then The user should be directed to "Deletion" of Linked List Page
 
-  @LinkedList28
-  Scenario: User navigated to tryEditor page with Run button from Deletion page
-    Given The user is on the "Deletion" after logged in LL
-    When The user clicks "Try Here" button in the "Deletion" page
-    Then The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-
-  @LinkedList29
- Scenario Outline: The user is able to run code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         0 |
-  @LinkedList30
-  Scenario Outline: The user is presented with error message for invalid code in Editor for linked list page
-    Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
-    When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
-    And clicks run button
-    Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
-
-    Examples: 
-      | Sheetname  | RowNumber |
-      | pythonCode |         1 |
-
-  @LinkedList31
+  @LinkedList20
   Scenario: The user validating "Practice Questions" page
-    Given The user is on the "Linked List page" after logged in LL
     When The user clicks Introduction link
     And The user clicks on the Practice Questions
-    Then The user should be directed to "Practice Questions LL" of Linked List Page
+    Then The user should be directed to "Practice Questions" of Linked List Page
