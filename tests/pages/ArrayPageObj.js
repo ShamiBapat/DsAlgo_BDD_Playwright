@@ -115,6 +115,21 @@ import {expect} from '@playwright/test'
         await this.submit.click();
     }
    
+    async checkURL(pagename) { 
+        console.log(`Expected page name: ${pagename}`);
+        let page_name = pagename.replace(/ /g, '');
+        let expectedURL = process.env[page_name];
+        console.log(`Expected URL: ${expectedURL}`);
+        let actualURL = this.page.url();
+        console.log(`Actual URL: ${actualURL}`);
+        await expect(actualURL).toBe(expectedURL);
+    
+        // console.log(pagename)   
+        // let page_name = pagename.replace(/ /g,'')
+        //    console.log('Process env page_name value ', process.env[page_name])
+        //    expect(await this.page).toHaveURL(process.env[page_name]);
+    }
+    
 
     async  checkPageTitleArray(page, str) {
 		
