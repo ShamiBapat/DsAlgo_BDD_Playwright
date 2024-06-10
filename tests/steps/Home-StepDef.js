@@ -6,6 +6,7 @@ const { Given, When, Then } = createBdd(test);
 
 Given('user navigate to dsportalapp home page', async ({Home_Page}) => {
           const url = process.env.HOME_URL
+
          // console.log(process.env[Home_URL])
           console.log(process.env.Home_URL)
           await Home_Page.navigateToHomePage(url);
