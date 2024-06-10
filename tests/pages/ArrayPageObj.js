@@ -19,12 +19,17 @@ import {expect} from '@playwright/test'
         
         this.tryHere =  page.locator("//a[text()='Try here>>>']")
         this.tryEditorforPracticeQ=page.locator("//pre[@role='presentation']");
-        
+        this.page.editorInput = page.locator('pre').nth(1)
+
         this.practiceQ =  page.locator("//a[text()='Practice Questions']")
         this.submit = page.locator("//input[@value='Submit']")
         this.submitErrMsg = page.getByText('Error occurred during submission');
         this.squaresOfASortedArrayErrorMes=page.locator("//pre[@id='output']");
     }
+    async enterCodeWithoutExcel(input) {
+        await this.page.editorInput.fill(input)
+        await this.page.pause()
+      }	
     async validateErrormessage(){
         const actualErrorMessage = await this.submitErrMsg.textContent();
         const expectedErrorMessage = 'Error occurred during submission';
@@ -40,12 +45,19 @@ import {expect} from '@playwright/test'
     async clickOnArrays(page){
         await this.arrayGetStart.click();
     }
+    async validateTryEditorUrl(){
+        const tryEditorurl = process.env.tryEditorUrl;
+        await expect(this.page).toHaveURL(tryEditorurl)
+      
+       
 
+    }
+    
     async validateArrayPage(){
         const Array = process.env.Array;
         await expect(this.page).toHaveURL(Array)
       
-       // await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/array/');
+       
 
     }
     async checkArraysTitle(page){
@@ -60,7 +72,7 @@ import {expect} from '@playwright/test'
     async verifyArraysInPythonPageUrl() {
         const arraysinPython = process.env.ArraysinPython;
         await expect(this.page).toHaveURL(arraysinPython)
-        //await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/array/arrays-in-python/');
+        
     }
     async clickOnArrayUsingList(){
         await this.arrayUsngList.click();
@@ -68,7 +80,6 @@ import {expect} from '@playwright/test'
     async verifyArrayUsingList(){
         const arraysUsingList = process.env.ArraysUsingList;
         await expect(this.page).toHaveURL(arraysUsingList)
-        //await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/array/arrays-using-list/')
     }
 
     async clickOnBasicOperationsInList(){
@@ -77,7 +88,7 @@ import {expect} from '@playwright/test'
     async ValidOnBasicOperationsInList(){
         const basicOperationsinLists = process.env.BasicOperationsinLists;
         await expect(this.page).toHaveURL(basicOperationsinLists)
-        //await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/array/basic-operations-in-lists/')
+        
     }
     async clickOnApplicationsOfArray(){
    await this.applicationsOfArray.click();
@@ -85,7 +96,6 @@ import {expect} from '@playwright/test'
     async ValidOnApplicationOnArray(){
         const applicationsofArray = process.env.ApplicationsofArray;
         await expect(this.page).toHaveURL(applicationsofArray)
-        //await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/array/applications-of-array/')
     }
     async tryHereClick() {
 		await this.tryHere.click();
@@ -115,6 +125,21 @@ import {expect} from '@playwright/test'
         await this.submit.click();
     }
    
+    async checkURL(pagename) { 
+        console.log(`Expected page name: ${pagename}`);
+        let page_name = pagename.replace(/ /g, '');
+        let expectedURL = process.env[page_name];
+        console.log(`Expected URL: ${expectedURL}`);
+        let actualURL = this.page.url();
+        console.log(`Actual URL: ${actualURL}`);
+        await expect(actualURL).toBe(expectedURL);
+    
+        // console.log(pagename)   
+        // let page_name = pagename.replace(/ /g,'')
+        //    console.log('Process env page_name value ', process.env[page_name])
+        //    expect(await this.page).toHaveURL(process.env[page_name]);
+    }
+    
 
     async  checkPageTitleArray(page, str) {
 		
@@ -122,14 +147,8 @@ import {expect} from '@playwright/test'
 		console.log('title of the page ', title)
         expect(await this.page).toHaveTitle(str)
 	}
-    async checkUrlArray(page, pagename){
    
-    let page_name = await   pagename.replace(/ /g,"")
-        console.log("Process env page_name value ", process.env[page_name])
-		expect(await this.page).toHaveURL(process.env[page_name]);
-       
-	}
-
+   
     async navigateToArray( page, pagename) {
         let page_name = await pagename.replace(/ /g,"")
 		await page.goto(process.env[page_name]);
