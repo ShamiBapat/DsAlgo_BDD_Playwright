@@ -6,7 +6,8 @@ const { Given, When, Then } = createBdd(test);
 
 Given('user navigate to dsportalapp home page', async ({Home_Page}) => {
           const url = process.env.HOME_URL
-          await Home_Page.navigateToHomePage(url);
+         console.log(process.env.Home_URL)
+          await Home_Page.checkHomeUrl(url);
   });
   
   When('User is not signed in already', async ({Home_Page}) => {
