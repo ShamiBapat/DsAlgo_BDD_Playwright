@@ -1,6 +1,5 @@
 
-  @only
-  Feature: Home page verification feature
+   Feature: Home page verification feature
     Background: Navigate to Home page
         Given user navigate to dsportalapp home page
 
