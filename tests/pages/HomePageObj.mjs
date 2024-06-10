@@ -49,6 +49,10 @@ export class HomePage {
     await this.page.goto(url);
     //await expect(this.page).toHaveURL(url);
   }
+	 async checkHomeUrl(url) {
+
+    await expect(this.page).toHaveURL(url);
+  }
 
   
   async getPageTitle(){
