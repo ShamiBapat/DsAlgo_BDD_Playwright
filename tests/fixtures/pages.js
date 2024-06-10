@@ -7,3 +7,5 @@ export * from '../pages/QueuePageObj';
 export * from '../pages/ArrayPageObj';
 export * from '../pages/TreePageObj';
 export * from '../pages/LinkedListObj.mjs'
+export * from '../pages/GraphPageObj';
+
