@@ -57,7 +57,7 @@ export class HomePage {
 
 
   async verifyHomePageUrl() {
-    await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/home');
+     expect(await this.page).toHaveURL('https://dsportalapp.herokuapp.com/home');
 }
   async signInIsVisisble() {
 
