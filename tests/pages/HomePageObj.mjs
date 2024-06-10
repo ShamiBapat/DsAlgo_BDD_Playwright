@@ -47,17 +47,42 @@ export class HomePage {
   async navigateToHomePage(url) {
 
     await this.page.goto(url);
-    //await expect(this.page).toHaveURL(url);
   }
 
+  async checkHomeUrl(url) {
+
+	// Log the expected URL from the environment variable
+		let expectedURL = process.env.HOME_URL;
+		console.log(`Expected URL: ${expectedURL}`);
+		
+		// Get the actual URL from the page
+		let actualURL = await this.page.url(); // Ensure we await the async operation
+		console.log(`Actual URL: ${actualURL}`);
+		
+		// Check if the actual URL matches the expected URL
+		expect(actualURL).toBe(expectedURL);
+	}
+	
+
+   // await expect(this.page).toBe(url);
+	
+		//console.log(`Expected page name:` {homepage});
+		//let page_name = homepage.replace(/ /g, '');
+		// let expectedURL = process.env.HOME_URL;
+		// console.log(`Expected URL: ${expectedURL}`);
+		// let actualURL = this.page.url();
+		// console.log(`Actual URL: ${actualURL}`);
+		//  expect(actualURL).toBe(expectedURL);
   
-  async getPageTitle(){
+
+  
+  async getPageTitle() {
     return await this.page.title();
 }
 
 
   async verifyHomePageUrl() {
-    await expect(this.page).toHaveURL('https://dsportalapp.herokuapp.com/home');
+     expect(await this.page).toHaveURL('https://dsportalapp.herokuapp.com/home');
 }
   async signInIsVisisble() {
 
