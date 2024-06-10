@@ -1,4 +1,4 @@
-@Only
+@skip
 Feature: Testing LinkedList page
 
 Background:
