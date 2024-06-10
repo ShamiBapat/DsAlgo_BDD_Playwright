@@ -27,10 +27,10 @@ When('The user clicks the Array Try here link', async ({arrayPage}) => {
   await arrayPage.tryHereClick()
 });
 
-Then('The user is in a page having an Editor with a Run button to test in {string} Arraypage', async ({arrayPage}, str) => {
+Then('The user is in a page having an Editor with a Run button to test in {string} Arraypage', async ({dataStructurePage}, str) => {
 
    console.log(`Expected to be in: ${str}`);
-   await arrayPage.checkURL(str);      
+   await dataStructurePage.checkURL(str);      
 
  });
  When('clicks run button1', async ({genericPage}) => {

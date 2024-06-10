@@ -12,11 +12,11 @@
 #Arrays in python
 Scenario:validating Arrays in python page with valid data
 Then User clicks ArrayInPython Page
-When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
-Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
+Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
 
     Examples: 
       | Sheetname  | RowNumber |
@@ -26,10 +26,10 @@ Then The user is presented with the result after clicking run button from sheet 
 
 Scenario:  validating Arrays in python page with invalid data    
 Then User clicks ArrayInPython Page
-When The user clicks the Array Try here link 
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 
     Examples: 
@@ -38,22 +38,24 @@ Then The user gets an error message as "NameError: name 'String' is not defined 
 #2 Arrays Using List
 Scenario Outline: validating Arrays Using List page with valid data 
 Then User clicks Arrays Using List Page
-When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
-Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
+Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
+
     Examples: 
       | Sheetname  | RowNumber |
       | pythonCode |         5 |
 
 Scenario Outline:  validating  Arrays Using List Page page with invalid data    
 Then User clicks Arrays Using List Page
-When The user clicks the Array Try here link 
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
+
 
     Examples: 
       | Sheetname  | RowNumber |
@@ -61,11 +63,12 @@ Then The user gets an error message as "NameError: name 'String' is not defined 
 #3 Basic Operations in Lists
  Scenario:validating Basic Operations in Lists page with valid data
 Then User clicks Basic Operations in Lists Page
-When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
-Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
+Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
+
     Examples: 
       | Sheetname  | RowNumber |
       | pythonCode |         5 |
@@ -74,10 +77,10 @@ Then The user is presented with the result after clicking run button from sheet 
 
 Scenario Outline:  validating Basic Operations in Lists page with invalidData   
 Then User clicks Basic Operations in Lists Page
-When The user clicks the Array Try here link 
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 
     Examples: 
@@ -86,11 +89,11 @@ Then The user gets an error message as "NameError: name 'String' is not defined 
 #4  Applications of Array    
 Scenario:validating Applications of Array page with valid data 
 Then User clicks Applications of Array Page
-When The user clicks the Array Try here link
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
-Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber> Array
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
+Then The user is presented with the result after clicking run button from sheet "<Sheetname>" and <RowNumber>
 
     Examples: 
       | Sheetname  | RowNumber |
@@ -100,11 +103,12 @@ Then The user is presented with the result after clicking run button from sheet 
 
 Scenario Outline:  validating Applications of Array with invalidData   
 Then User clicks Applications of Array Page
-When The user clicks the Array Try here link 
-Given The user is in a page having an Editor with a Run button to test in "try Editor Url" Arraypage
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1
+When The user clicks the Try here link
+Given The user is in a page having an Editor with a Run button to test in "try Editor Url" page 
+When The user enters valid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
+
 
     Examples: 
       | Sheetname  | RowNumber |
@@ -115,8 +119,8 @@ Then The user gets an error message as "NameError: name 'String' is not defined 
  Scenario Outline: Practice Search the array Question 
 Then User clicks Applications of Array Page
 Then User clicks PracticeQuestion to practice Search the array question
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array 
-And clicks run button1 
+When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>  
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 Then User submit answer for practice question 
 
@@ -127,8 +131,8 @@ Then User submit answer for practice question
  Scenario Outline: Practice  Max Consecutive Ones Question 
 Then User clicks Applications of Array Page
 Then User clicks PracticeQuestion to practice Max Consecutive Ones question
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1 
+When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> 
+And clicks run button 
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 Then User submit answer for practice question 
 
@@ -140,8 +144,8 @@ Then User submit answer for practice question
 Scenario Outline: Practice  findNumberWithEvenNumber Question 
 Then User clicks Applications of Array Page
 Then User clicks PracticeQuestion findNumberWithEvenNumber question
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1 
+When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 Then User submit answer for practice question 
 
@@ -152,8 +156,8 @@ Then User submit answer for practice question
  Scenario Outline: Practice  squaresOfASortedArray Question 
 Then User clicks Applications of Array Page
 Then User clicks PracticeQuestion to squaresOfASortedArray question
-When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber> Array
-And clicks run button1 
+When The user enters invalid python code in Editor from sheet "<Sheetname>" and <RowNumber>
+And clicks run button
 Then The user gets an error message as "NameError: name 'String' is not defined on line 1"
 Then User submit answer for squaresOfASortedArray practice question 
 

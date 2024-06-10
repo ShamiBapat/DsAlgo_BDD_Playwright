@@ -1,4 +1,4 @@
-@only
+
 Feature: Graph feature
 
 Background:

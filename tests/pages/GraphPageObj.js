@@ -30,6 +30,7 @@ class GraphPage{
 		else
 			console.log("Page cannot be found-Graph");
 	}
+     
 
     }
     export{GraphPage};

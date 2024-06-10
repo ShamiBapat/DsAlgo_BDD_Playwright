@@ -95,7 +95,7 @@ Then('User should be redirected to Register page', async ({page}) => {
         await SignIn_Page.enterPassword(pwd)
         await SignIn_Page.clickOnLoginBtn();
         await Home_Page.verifyHomePageUrl();        
-        Home_Page.loggedInSuccessMsgVisisble();
+       await Home_Page.loggedInSuccessMsgVisisble();
   });
   
   When('user click on Graph data structure from drop down menu {string}', async ({Home_Page}, ddMenuItem) => {
@@ -104,9 +104,10 @@ Then('User should be redirected to Register page', async ({page}) => {
                 await Home_Page.dropdown(ddMenuItem)
   });
   
-  Then('user should be redirected to Graph home page.', async ({page}) => {
-    
-         await page.toHaveURL('https://dsportalapp.herokuapp.com/graph/');
+  Then('user should be redirected to {string} home page.', async ({dataStructurePage}, str) => {
+    console.log(`Expected to redirect to: ${str}`);
+        await dataStructurePage.checkURL(str)
+         //await this.page.toHaveURL('https://dsportalapp.herokuapp.com/graph/');
   });
 
 

@@ -115,10 +115,13 @@ async clickOnRegister() {
 
 //generic method to click on specific get strted module btn
 
+
   async  getStarted(string) {
+	
 		switch(string){
 		case "Datastructures":
-			await this.page.getstarted_DS.isVisible();
+			//await this.page.getstarted_DS.isVisible();
+			
 			await this.page.getstarted_DS.click();
 			break;
 		case "Arrays":

@@ -44,7 +44,7 @@ import{readExcelCode, readExcelResult } from '../../CommonUtils/ExcelUtility'
   
 	async enterCodeToExecute( sheetName,  rowNum, page)
     {
-		let code = await readExcelCode(sheetName,rowNum )
+		let code = await readExcelCode(sheetName,rowNum, page )
       
         await this.page.editorInput.click();
 
